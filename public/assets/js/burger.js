@@ -4,9 +4,11 @@ $(function() {
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
-  
+      var burgerName=$("#addBurger").val().trim();
+      if(burgerName!=""){
+      
       var newBurger = {
-        name: $("#burgerName").val().trim()
+        name: burgerName
         
       };
   
@@ -21,21 +23,39 @@ $(function() {
           location.reload();
         }
       );
+    }
+    else{
+      alert("Please Enter the Burger Name!");
+    }
     });
 
-    $(".burgerList").on("click", function(event) {
+    $(".devourB").on("click", function(event) {
       
       
       var id = $(this).data("id");
-      alert(id);
       console.log("id for updating"+id);
       // Send the POST request.
       $.ajax({
         type: "PUT",
-        url: "/api/burgers/" + id
+        url: "/api/devourBurger/" + id
       }).then(
         function() {
           console.log("updated");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+
+    $(".deleteB").on("click", function(event) {
+      var id = $(this).data("id");
+  
+      // Send the DELETE request.
+      $.ajax("/api/delBurger/" + id, {
+        type: "DELETE"
+      }).then(
+        function() {
+          console.log("deleted Burger", id);
           // Reload the page to get the updated list
           location.reload();
         }
