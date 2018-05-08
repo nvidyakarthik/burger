@@ -5,6 +5,7 @@
 * Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
 * App will store every burger in a database, whether devoured or not.
 * This is not in requirement-added a `Delete` button for each devoured burger.Now the user the can delete the devoured burger if they want to.
+* App is developed using MySQL, Node, Express, Handlebars.MVC Design Pattern is used.App is Deployed in heroku.
 * Click the link to view the website https://rocky-journey-76532.herokuapp.com/
 
 # Demo
